@@ -67,7 +67,7 @@ export default {
   background: tan;
 
   .title {
-    margin: 20% auto 0 auto;
+    margin: 80px auto 0 auto;
     width: 80%;
     color: #fff;
     font-size: 1.7rem;
@@ -76,7 +76,7 @@ export default {
 
   .datepicker {
     position: relative;
-    margin: 20% auto 0 auto;
+    margin: 60px auto 0 auto;
     width: 80%;
   }
 

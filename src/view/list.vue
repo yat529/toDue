@@ -10,8 +10,9 @@
             <div class="duedate">{{ item.duedate }}</div>
             <div class="content">{{ item.content }}</div>
           </div>
-          <div class="countdown">5 Days</div>
-          
+          <div class="countdown">
+            <div class="wrapper" v-html="countdown(item.duedate)"></div>
+          </div>
         </li>
       </ul>
     </div>
@@ -21,6 +22,9 @@
 </template>
 
 <script>
+import moment from 'moment';
+
+
 export default {
   components: {},
 
@@ -31,7 +35,21 @@ export default {
   },
 
   methods: {
-    // 
+    countdown(date) {
+      let regex = /([^\s]*\d+[^\s]*)/;
+      let dayago = /(day[s]? ago)/;
+      let countdown = moment(date).fromNow().toString();
+      if(regex.test(countdown)) {
+        return countdown
+                .replace(regex, '<span class="number">$1</span>')
+                .replace(dayago, '<span class="daysago">$1</span>');
+        // return newStr.replace(dayago, '<span class="daysago">$1</span>');
+      }
+    }
+  },
+
+  computed: {
+    
   },
 
   created() {
@@ -57,7 +75,7 @@ export default {
   background: #555555;
 
   .title {
-    margin-top: 20%;
+    margin-top: 80px;
     color: #fff;
     font-size: 1.7rem;
     font-weight: bold;
@@ -65,23 +83,23 @@ export default {
 
   .list-wrapper {
     width: 80%;
-    margin: 20px auto;
-    // padding: 20px;
+    margin: 40px auto 0 auto;
+    height: 360px;
 
     ul {
-      margin-top: 30px;
       width: 100%;
 
       .list-item {
         position: relative;
         width: 100%;
-        // height: 75px;
+        height: 75px;
         margin-bottom: 15px;
+        padding: 5px 60px 5px 15px;
         background:tan;
 
         .body {
-          width: auto;
-          padding: 5px 60px 5px 15px;
+          width: 100%;
+          padding-right: 15px;
           text-align: left;
 
           .duedate {
@@ -91,7 +109,6 @@ export default {
             padding-left: 10px;
             line-height: 25px;
             font-size: 13px;
-            // border-bottom: 1px solid #fff;
 
             &::before {
               content: "";
@@ -107,11 +124,8 @@ export default {
           }
 
           .content {
-            // width: 100%;
-            height: 50px;
-            padding: 0 10px;
-            // line-height: 20px;
             font-size: 16px;
+            word-wrap: break-word;
           }
         }
 
@@ -122,6 +136,29 @@ export default {
           height: 100%;
           width: 60px;
           background: #fff;
+
+          .wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 55px;
+            transform: translate(-50%, -50%);
+            font-size: 13px;
+          }
+
+          .number {
+            display: block;
+            width: 100%;
+            padding: 5px;
+            font-size: 1.2rem;              
+          }
+
+          .daysago {
+            display: block;
+            width: 100%;
+            padding: 0 10px;
+          }
         }
       }
     }
