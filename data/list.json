@@ -1,18 +1,30 @@
 [
   {
-    "duedate": "2018-03-15",
-    "content": "asdasdasdasdasd"
+    "duedate": "2018-03-20",
+    "content": "Project Paper Deadline"
   },
   {
-    "duedate": "2018-03-12",
-    "content": "asdasasdad"
+    "duedate": "2018-03-22",
+    "content": "Credit Card Due"
   },
   {
-    "duedate": "2018-03-11",
-    "content": "asdasd"
+    "duedate": "2018-03-31",
+    "content": "Phone Bill Due"
   },
   {
     "duedate": "2018-03-17",
-    "content": "asdasddadadasdafasdaafasdadasd"
+    "content": "Loan Due"
+  },
+  {
+    "duedate": "2018-03-21",
+    "content": "Car Insurance Due"
+  },
+  {
+    "duedate": "2018-03-29",
+    "content": "Gas Bill Due"
+  },
+  {
+    "duedate": "2018-03-27",
+    "content": "Electricity Bill Due"
   }
 ]
